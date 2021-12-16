@@ -1,5 +1,6 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'dart:math';
 
 void main() {
   runApp(const DiceeRollingApp(
@@ -56,16 +57,8 @@ class _DicePageState extends State<DicePage> {
               child: TextButton(
                 onPressed: () {
                   setState(() {
-                    if (leftDiceNumber == 6) {
-                      leftDiceNumber = 1;
-                    } else {
-                      leftDiceNumber++;
-                    }
+                    leftDiceNumber = Random().nextInt(6) + 1;
                   });
-
-                  if (kDebugMode) {
-                    print(leftDiceNumber);
-                  }
                 },
                 child: Image.asset('assets/images/dice$leftDiceNumber.png'),
               ),
@@ -77,16 +70,8 @@ class _DicePageState extends State<DicePage> {
               child: TextButton(
                 onPressed: () {
                   setState(() {
-                    if (rightDiceNumber == 6) {
-                      rightDiceNumber = 1;
-                    } else {
-                      rightDiceNumber++;
-                    }
+                    rightDiceNumber = Random().nextInt(6) + 1;
                   });
-
-                  if (kDebugMode) {
-                    print(rightDiceNumber);
-                  }
                 },
                 child: Image.asset('assets/images/dice$rightDiceNumber.png'),
               ),
